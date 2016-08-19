@@ -3,7 +3,7 @@ int popSize = 100;
 float mutRate = 0.01;
 
 PVector startPos;
-int iteration = 0;
+int generation = 0;
 int life = 0;
 int x1, y1;
 Goal Goal;
@@ -30,6 +30,7 @@ void draw() {
   } else {
     Population.nextGen();
     life = 0;
+    generation++;
   }
 }
 
@@ -107,6 +108,7 @@ void showInfo() {
   info += "Vehicles: " + Population.population.length + "\n";
   info += "Obstacles: " + Obstacles.size() + "\n";
   info += "Frame: " + life + "\n";
+  info += "Generation: " + generation + "\n";
   info += "Best fitness: " + Population.getFittest().DNA.fitness;
   fill(255);
   textAlign(LEFT, BOTTOM);
