@@ -61,15 +61,18 @@ class Population {
 
   DNA crossOver(DNA DNA1, DNA DNA2) {
     PVector[] result = new PVector[popDur];
-    int swapGen = 0;
-    boolean genA = false;
+    //int swapGen = 0;
+    //boolean genA = false;
     for (int i = 0; i < popDur; i++) {
+      /* Maybe it's better, i dunno
       if(swapGen < 0) {
         genA = !genA;
         swapGen = int(random(10, popDur/3));
       }
       swapGen--;
       result[i] = (genA) ? DNA1.information[i] : DNA2.information[i];
+      */
+      result[i] = (i < popDur / 2) ? DNA1.information[i] : DNA2.information[i];
     }
     return new DNA(result);
   }
